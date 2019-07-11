@@ -1,0 +1,99 @@
+{
+    "components": {
+        "schemas": {
+            "Body": {
+                "properties": {
+                    "locations": {
+                        "description": "location to blur :{'startY': Y1, 'endY':Y2, 'startX':X1, 'endX':X2}",
+                        "example": "{'startY': 3840, 'endY': 1376, 'startX': 3378, 'endX': 1838}",
+                        "type": "string"
+                    },
+                    "url": {
+                        "description": "url of the image to be processed",
+                        "example": "https://i.ibb.co/FqDSQF8/input.jpg",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "locations"
+                ],
+                "type": "object"
+            },
+            "Response": {
+                "properties": {
+                    "image": {
+                        "description": "image with blurred image",
+                        "example": "",
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "apikey": {
+                "in": "header",
+                "name": "X-OVH-Api-Key",
+                "type": "apiKey"
+            }
+        }
+    },
+    "info": {
+        "description": "This API will blur a part of the given image",
+        "title": "image blurring",
+        "version": "1.0.0"
+    },
+    "openapi": "3.0.1",
+    "paths": {
+        "/process": {
+            "post": {
+                "description": "This API will blur a part of the given image",
+                "operationId": "process",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Body"
+                            }
+                        }
+                    },
+                    "description": "blur a part of the image",
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/Response"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "apikey": []
+                    }
+                ],
+                "summary": "blur a part of the image",
+                "tags": [
+                    "process"
+                ]
+            }
+        }
+    },
+    "tags": [
+        {
+            "description": "This API will blur a part of the given image",
+            "name": "process"
+        }
+    ]
+}
