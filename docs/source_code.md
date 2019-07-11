@@ -1,3 +1,2 @@
-
-	This API use the following Github project : 
-	[https://github.com/jqueguiner/blurring](https://github.com/jqueguiner/blurring)
+The project is under MIT License :
+	[https://github.com/jqueguiner/blurring/blob/master/LICENSE](https://github.com/jqueguiner/blurring/blob/master/LICENSE)
