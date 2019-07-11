@@ -5,8 +5,8 @@
                 "properties": {
                     "locations": {
                         "description": "location to blur :{'startY': Y1, 'endY':Y2, 'startX':X1, 'endX':X2}",
-                        "example": "{'startY': 3840, 'endY': 1376, 'startX': 3378, 'endX': 1838}",
-                        "type": "string"
+                        "example":[{"startY": 700,"endY": 1500,"startX": 2000,"endX": 2600},{"startY": 1200,"endY": 1900,"startX": 3400,"endX": 4200}],
+                        "type": "object"
                     },
                     "url": {
                         "description": "url of the image to be processed",
