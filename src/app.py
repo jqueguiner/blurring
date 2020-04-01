@@ -45,11 +45,17 @@ def process():
     output_path = generate_random_filename(upload_directory,"jpg")
 
     try:
-        url = request.json["url"]
+        if 'file' in request.files:
+            file = request.files['file']
+            if allowed_file(file.filename):
+                file.save(input_path)
+            
+        else:
+            url = request.json["url"]
+            download(url, input_path)
+
         locations = request.json["locations"]
         sigma=50
-
-        download(url, input_path)
        
         results = []
 
